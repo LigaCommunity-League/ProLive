@@ -86,14 +86,14 @@
     <!-- Core Application Script -->
     <script>
         const streams = [
-            { id: 1, title: "KBFC vs Mumbai City", category: "English League", viewers: "1.2M", url: "https://youtube.com/live/txoM045gXYo?feature=share" },
+            { id: 1, title: "KBFC vs Mumbai City", category: "Malayalam", viewers: "4216", url: "https://www.youtube.com/live/k54HUqtElos?si=PijvpC19Ai6xoIN5" },
             //{ id: 2, title: "La Liga: Real Madrid vs Barcelona", category: "Spanish League", viewers: "2.5M", url: "https://www.youtube.com" },
             //{ id: 3, title: "Champions League: Bayern vs PSG", category: "UEFA", viewers: "890k", url: "https://www.youtube.com" },
            //{ id: 4, title: "Serie A: Juventus vs AC Milan", category: "Italian League", viewers: "450k", url: "https://www.youtube.com" },
            // { id: 5, title: "Bundesliga: Dortmund vs Leipzig", category: "German League", viewers: "320k", url: "https://www.youtube.com" },
             //{ id: 6, title: "MLS: Inter Miami vs LA Galaxy", category: "USA League", viewers: "150k", url: "https://www.youtube.com" },
             //{ id: 7, title: "International Friendly: Brazil vs France", category: "International", viewers: "780k", url: "https://www.youtube.com" },
-           // { id: 8, title: "Ligue 1: Monaco vs Marseille", category: "French League", viewers: "210k", url: "https://www.youtube.com" }
+           { id: 8, title: "Click Here For Promotions", category: "നിങ്ങളുടെ BUSINESS ഇതിൽ PROMOTE ചെയ്യണോ?", viewers: "317", url: "business.html" }
         ];
 
         function createStreamList() {
@@ -101,7 +101,7 @@
             streams.forEach(stream => {
                 const item = document.createElement('div');
                 item.className = 'stream-item glass-panel rounded-lg p-3 flex items-center justify-between group';
-                item.onclick = () => window.open(stream.url, '_blank');
+                item.onclick = () => window.location.href = stream.url;
                 item.innerHTML = `
                     <div class="flex items-center gap-4 overflow-hidden">
                         <div class="hidden sm:flex items-center justify-center w-8 h-8 rounded bg-slate-800 text-slate-400 group-hover:text-blue-400">
@@ -115,7 +115,7 @@
                     <div class="flex items-center gap-6 shrink-0 ml-4">
                         <div class="flex flex-col items-end">
                             <span class="text-xs font-mono text-red-400">${stream.viewers}</span>
-                            <span class="text-[10px] text-slate-600 uppercase">Live</span>
+                            <span class="text-[10px] text-slate-600 uppercase">Clicks</span>
                         </div>
                         <div class="text-slate-700 group-hover:text-blue-500 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -147,5 +147,6 @@
 
 </body>
 </html>
+
 
 
