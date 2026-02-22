@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Essential for Android/iOS responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Sponsorship Information</title>
+    <style>
+        :root {
+            --bg-color: #050a14;
+            --accent: #3b82f6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fluid layout for all screen heights */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            /* Support for mobile browsers with dynamic toolbars */
+            min-height: -webkit-fill-available;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        html {
+            height: -webkit-fill-available;
+        }
+
+        /* Responsive Background Glow */
+        .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 800px;
+            height: 100%;
+            max-height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        /* Adapts from ~40px on small phones to ~64px on PC */
+        h1 {
+            font-size: clamp(2.2rem, 8vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+
+        .divider {
+            height: 3px;
+            width: clamp(40px, 10vw, 60px);
+            background-color: var(--accent);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Maintain style while changing to button type */
+        .sponsor-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            outline: none;
+            
+            /* Inherited Typography Style */
+            font-family: inherit;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--text-secondary);
+            width: 90%;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        /* Subtle hover effect for button feedback */
+        .sponsor-btn:hover {
+            color: var(--text-primary);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Optimize for very small screens (portrait) */
+        @media (max-width: 360px) {
+            h1 { font-size: 2rem; }
+            .sponsor-btn { font-size: 0.95rem; }
+        }
+
+        /* Optimize for landscape orientations on mobile */
+        @media (max-height: 450px) and (orientation: landscape) {
+            body { padding: 40px 20px; }
+            .content { margin-top: 20px; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <main class="content">
+        <h1>No Sponsore yet</h1>
+        <div class="divider"></div>
+        <button type="button" class="sponsor-btn"></button>
+    </main>
+
+</body>
+</html>
