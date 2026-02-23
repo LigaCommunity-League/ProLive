@@ -2,47 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>YouTube Embed</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Video</title>
     <style>
-        /* Remove default margins and hide scrollbars */
-        body, html {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background-color: #000; /* Black background for a cinematic feel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
         }
-
-        /* Container to hold the iframe */
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Make the iframe fill the container */
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        iframe {
+            max-width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <iframe 
-            src="https://www.youtube.com/embed/n4hQUjY9hJU?si=u8s8hPo7u47EFj5B" 
-            title="YouTube video player" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
-    </div>
+    <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/n4hQUjY9hJU?si=u8s8hPo7u47EFj5B"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
 
 </body>
 </html>
