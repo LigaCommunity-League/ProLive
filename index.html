@@ -25,6 +25,17 @@
             transform: translateX(4px);
         }
 
+        /* Specific style for the red business bar */
+        .business-ad-row {
+            background: rgba(239, 68, 68, 0.2) !important;
+            border: 1px solid rgba(239, 68, 68, 0.4) !important;
+        }
+        
+        .business-ad-row:hover {
+            background: rgba(239, 68, 68, 0.3) !important;
+            border-color: rgba(239, 68, 68, 0.8) !important;
+        }
+
         .live-dot {
             animation: blink 1.5s infinite;
         }
@@ -63,7 +74,6 @@
                 Donate
             </a>
         </div>
-        <!-- This is where your external Ad Script content would render -->
         <div id="ad-content-placeholder"></div>
     </div>
 
@@ -87,20 +97,25 @@
     <script>
         const streams = [
             { id: 1, title: "Atletico vs club bruge", category: "Live", viewers: "", url: "live1.html" }, 
-            { id: 2, title: "Inter vs Glidmt", category: "Soon", viewers: "172", url: "soon.html" },
+            { id: 2, title: "Inter vs Glidmt", category: "Soon", viewers: "", url: "soon.html" },
             { id: 3, title: "KBFC vs INTER KASHI", category: "Soon", viewers: "", url: "soon.html" },
-           { id: 4, title: "LeverKu vs Olumpiacos", category: "Soon", viewers: "", url: "soon.html" },
-           { id: 5, title: "Newcastle vs Quarabag", category: "Soon", viewers: "320", url: "soon.html" },
-            //{ id: 6, title: "MLS: Inter Miami vs LA Galaxy", category: "USA League", viewers: "150", url: "https://www.youtube.com" },
-            //{ id: 7, title: "International Friendly: Brazil vs France", category: "International", viewers: "780", url: "https://www.youtube.com" },
-           { id: 8, title: "Promote Your Business Here", category: "CLICK TO CONTACT (Low Cost)", viewers: "", url: "business.html" }
+            { id: 4, title: "LeverKu vs Olumpiacos", category: "Soon", viewers: "", url: "soon.html" },
+            { id: 5, title: "Newcastle vs Quarabag", category: "Soon", viewers: "", url: "soon.html" },
+            { id: 8, title: "Promote Your Business Here", category: "CLICK TO CONTACT (Low Cost)", viewers: "", url: "business.html" }
         ];
 
         function createStreamList() {
             const container = document.getElementById('streams-container');
             streams.forEach(stream => {
                 const item = document.createElement('div');
-                item.className = 'stream-item glass-panel rounded-lg p-3 flex items-center justify-between group';
+                
+                // Logic: Add 'business-ad-row' class only for id 8
+                let itemClasses = 'stream-item glass-panel rounded-lg p-3 flex items-center justify-between group';
+                if (stream.id === 8) {
+                    itemClasses += ' business-ad-row';
+                }
+                
+                item.className = itemClasses;
                 item.onclick = () => window.location.href = stream.url;
                 item.innerHTML = `
                     <div class="flex items-center gap-4 overflow-hidden">
@@ -109,13 +124,12 @@
                         </div>
                         <div class="flex flex-col truncate">
                             <span class="text-sm font-semibold text-slate-200 truncate">${stream.title}</span>
-                            <span class="text-[11px] text-slate-500 uppercase tracking-wider font-medium">${stream.category}</span>
+                            <span class="text-[11px] ${stream.id === 8 ? 'text-red-300' : 'text-slate-500'} uppercase tracking-wider font-medium">${stream.category}</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-6 shrink-0 ml-4">
                         <div class="flex flex-col items-end">
                             <span class="text-xs font-mono text-red-400">${stream.viewers}</span>
-                            <span class="text-[10px] text-slate-600 uppercase"></span>
                         </div>
                         <div class="text-slate-700 group-hover:text-blue-500 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -128,20 +142,9 @@
         window.onload = createStreamList;
     </script>
 
-    <!-- AD SCRIPT SECTION (KEEP SEPARATE) -->
     <script id="ad-integration-script">
-        /**
-         * PASTE YOUR AD SCRIPT BELOW THIS LINE
-         * --------------------------------------------------
-         * Example:
-         * (function(s,o,g,a,m){ ... })(window,document,'script','...','...','...');
-         */
-        
-        // This function is defined but not called automatically to prevent 
-        // issues during your development. You can trigger ad logic here.
         function initializeAds() {
             console.log("Ad script container ready.");
-            // Your ad link for the 'Open' button is controlled in the HTML <a> tag above.
         }
     </script>
 
