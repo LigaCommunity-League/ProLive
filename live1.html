@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fullscreen Stream</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Stream</title>
 
-    .stream-container {
-      width: 100vw;
-      height: 100vh;
-    }
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    overflow: hidden;
+}
 
-    .stream-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-  </style>
+#streamFrame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+}
+</style>
 </head>
+
 <body>
-  <div class="stream-container">
-    <iframe
-      id="streamFrame"
-      src="https://live.baranewssumsel.online/albaplayer/bein22/?serv=0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      referrerpolicy="no-referrer">
-    </iframe>
-  </div>
+
+<iframe 
+    id="streamFrame"
+    src="https://live.baranewssumsel.online/albaplayer/bein22/?serv=0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe>
+
 </body>
 </html>
